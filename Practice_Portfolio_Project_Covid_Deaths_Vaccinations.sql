@@ -21,7 +21,7 @@ from PortfolioProject..CovidDeaths
 where location like '%states%'
 order by 1,2
 
--- Loooking at Total Cases vs Population
+-- Looking at Total Cases vs Population
 -- Shows what percent of population has gotten covid
 select location, date, population,total_cases, (total_cases/population)*100 as Percent_Population_Infected 
 from PortfolioProject..CovidDeaths
@@ -71,16 +71,6 @@ join PortfolioProject..CovidVaccines vac
 where dea.continent is not null
 order by 2,3
 
-
---Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
---, SUM(CONVERT(int,vac.new_vaccinations)) OVER (Partition by dea.Location Order by dea.location, dea.Date) as RollingPeopleVaccinated
-----, (RollingPeopleVaccinated/population)*100
---From PortfolioProject..CovidDeaths dea
---Join PortfolioProject..CovidVaccines vac
---	On dea.location = vac.location
---	and dea.date = vac.date
---where dea.continent is not null 
---order by 2,3
 
 -- Using CTE to perform calculation on partition by in previous quary 
 
